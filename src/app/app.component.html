@@ -1,0 +1,20 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-tabs *ngIf="isLogged">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="contacts">
+        <ion-icon name="play-circle"></ion-icon>
+        Contacts
+      </ion-tab-button>
+      <ion-tab-button tab="conversations">
+        <ion-icon name="radio"></ion-icon>
+        Conversation
+      </ion-tab-button>
+      <ion-tab-button (click)="logout()">
+        <ion-icon name="library"></ion-icon>
+        Settings
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-app>

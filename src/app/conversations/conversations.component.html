@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversations</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content #content [scrollEvents]="true">
+  <ion-list lines="none">
+    <ion-item *ngFor="let conversation of conversations" [routerLink]='["/chat", conversation.id]'>
+      <ion-label>{{ conversation.name }}</ion-label>
+      <ion-note slot="end">{{ conversation.latest_message }}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

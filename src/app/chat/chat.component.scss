@@ -1,0 +1,26 @@
+.received {
+  text-align: right;
+}
+
+.received .message-bubble {
+  background-color: #007bff; /* Blue color for sent messages */
+  color: white;
+  align-self: flex-end;
+}
+
+.message-bubble {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.sent {
+  text-align: left;
+}
+
+.sent .message-bubble {
+  background-color: #f0f0f0; /* Light gray color for received messages */
+  color: black;
+}
+
+ion-list {
+}

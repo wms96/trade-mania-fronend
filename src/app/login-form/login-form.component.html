@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="submitForm()" [formGroup]="ionicForm" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input
+        aria-label="Email"
+        formControlName="email"
+        required
+        type="email"
+      ></ion-input>
+    </ion-item>
+    <div
+      *ngIf="ionicForm.get('email')?.touched && ionicForm.get('email')?.invalid"
+    >
+      <div
+        *ngIf="ionicForm.get('email')?.errors?.['required']"
+        class="ion-padding"
+      >
+        <ion-text color="danger">Email is required.</ion-text>
+      </div>
+      <div *ngIf="ionicForm.get('email')?.errors?.['pattern']" class="ion-padding">
+        <ion-text color="danger">Please provide valid Email.</ion-text>
+      </div>
+    </div>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        aria-label="Password"
+        formControlName="password"
+        type="password"
+      ></ion-input>
+    </ion-item>
+    <div
+      *ngIf="ionicForm.get('password')?.touched && ionicForm.get('password')?.invalid"
+    >
+      <div
+        *ngIf="ionicForm.get('password')?.errors?.['required']"
+        class="ion-padding"
+      >
+        <ion-text color="danger">Password is required.</ion-text>
+      </div>
+      <div
+        *ngIf="ionicForm.get('password')?.errors?.['minlength']"
+        class="ion-padding"
+        color="danger"
+      >
+        <ion-text color="danger">Password should be min 8 chars long.</ion-text>
+      </div>
+    </div>
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary" expand="block" type="submit"
+        >Submit
+        </ion-button
+        >
+        <ion-button [routerLink]='["/register"]'
+                    fill="clear">Register
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

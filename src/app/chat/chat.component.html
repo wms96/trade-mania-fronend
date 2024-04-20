@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content #content
+
+             (ionScrollEnd)="onScroll($event)"
+
+
+             [scrollEvents]="true">
+  <ion-list (scroll)="onScroll($event)" lines="none">
+    <ion-item *ngFor="let message of messages" [class.received]="message.to_user_id === userId" [class.sent]="message.user_id === userId"
+              class="message-container">
+      <ion-label class="message-bubble">{{ message.content }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input [(ngModel)]="newMessage" placeholder="Type your message..."></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="sendMessage()" [disabled]="loading || newMessage === ''">Send</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

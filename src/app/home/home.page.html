@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Contacts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar (ionChange)="applyFilters($event)" placeholder="Keyword"></ion-searchbar>
+  <ion-list [inset]="true">
+    <ion-item *ngFor="let contact of contacts">
+      <ion-label>{{ contact.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
